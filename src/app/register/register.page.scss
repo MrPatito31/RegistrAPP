@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,300&display=swap');
+
+#contenido{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+#fondo{
+  background-image: url(https://www.teahub.io/photos/full/26-267347_minimalist-nature-wallpaper-iphone.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#login{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  row-gap: 3vh;
+  align-items: center ;
+  padding-bottom: 90px;
+}
+
+#login>a{
+  font-size: x-small;
+  text-decoration: none;
+}
+
+h1{
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bolder;
+  color: #fff;
+}
+
+#logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+
+button{
+  padding: 10px;
+  border-radius: 12px;
+  background-color: rgba(255, 184, 0, 1);
+  color: black;
+  font-weight: bold;
+  width: 100%;
+}
+
+button:active{
+  background-color: rgba(255, 230, 0, 1);
+}
+
+input{
+  padding: 5px;
+  border: 0;
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  background: #3B3B3B;
+}
+
+
+#foter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10vh;
+}
+
+p{
+  font-size: x-small;
+  margin-bottom: 0px;
+  color: #fff;
+}
+
+span{
+  color: rgba(255, 184, 0, 1);
+}

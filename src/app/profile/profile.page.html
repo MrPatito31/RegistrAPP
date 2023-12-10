@@ -1,0 +1,26 @@
+<ion-content [fullscreen]="true">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button default-href="#" (click)="Home()"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Perfil</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div id="contenido">
+    <div id="Fotoperfil">
+      <ion-avatar>
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+    </div>
+      <div id="Info" *ngFor="let dato in usuarios">
+        
+            <ion-label id="title">Nombre: {{ dato.nombre }}</ion-label>
+          
+            <ion-label id="title">Correo: {{ dato.correo }}</ion-label>
+          
+            <ion-label id="title">RUT: {{  }}</ion-label>
+      </div>
+  </div>
+</ion-content>

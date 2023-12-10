@@ -1,0 +1,58 @@
+<ion-content [fullscreen]="true">
+  <ion-menu side="end" contentId="main-content">
+    
+<!-- Titulo Del menu Dentro -->
+    <ion-header>
+      <ion-toolbar>
+        <ion-title style="--color: #fff;">Opciones</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    
+<!-- Contenido del menu -->
+    <ion-content id="menu" class="ion-padding">
+      <div id="menu-content">
+        <div style="color: #fff;" id="options" (click)="Profile()" ><ion-icon style="--color: #fff;" name="person-circle-outline" size="large"></ion-icon>
+          Perfil
+        </div>
+        <hr>
+        <div style="color: #fff;" id="options" (click)="Setting()"><ion-icon style="--color: #fff;" name="notifications-outline" size="large"></ion-icon>
+          Notificaciones
+        </div>
+        <hr>
+        <div style="color: #fff;" id="options" (click)="Login()"><ion-icon style="--color: #fff;" name="close-circle-outline" size="large"></ion-icon> 
+          Cerrar Sesion
+        </div>
+      </div>
+    </ion-content>
+  </ion-menu>
+  <div class="ion-page" id="main-content">
+    
+<!-- Titulo del Home -->
+    <ion-header>
+      <ion-toolbar>
+        <ion-title><span id="regis">Registr</span><span id="app">APP</span></ion-title>
+        <ion-buttons slot="end">
+          <ion-menu-button style="--color: #fff;"></ion-menu-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    
+<!-- Contenido del Home -->
+    <ion-content>
+      <div id="home">
+        <div id="titulo" style="color: #fff;">Revisa tus horarios de hoy</div>
+          <div id="listahorario">
+            <!--Contenido de Lista Horario-->
+              <ion-label id="title" style="color: #fff;">Seccion: </ion-label>
+
+              <ion-label id="title" style="color: #fff;">Clase: </ion-label>
+          
+              <ion-label id="title" style="color: #fff;">Hora: </ion-label>
+          </div>
+      </div>
+      <div id="navbar">
+        <ion-icon id="QR" name="qr-code-outline" (click)="Qr()"></ion-icon>
+      </div>
+    </ion-content>
+  </div>
+</ion-content>

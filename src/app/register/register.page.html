@@ -1,0 +1,29 @@
+<ion-content [fullscreen]="true">
+  <div id="fondo"> 
+    <!-- contenedor principal -->
+    <div id="contenido">
+
+      <!-- logo del login -->
+      <div id="logo">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_DuocUC.svg/1280px-Logo_DuocUC.svg.png" alt="">
+      </div>
+
+      <!-- el login -->
+      <div id="login">
+        <h1>Registrarse</h1>
+        <input id="usuario" type="text" placeholder="Usuario" [(ngModel)]="usuario">
+        <input id="contraseña" type="password" placeholder="Contraseña" [(ngModel)]="contrasena">
+        <input id="nombre" type="text" placeholder="Nombre" [(ngModel)]="nombre">
+        <input id="apellido" type="text" placeholder="Apellido" [(ngModel)]="apellido">
+        <input id="correo" type="text" placeholder="Correo" [(ngModel)]="correo">
+        <input id="rut" type="text" placeholder="Rut" [(ngModel)]="rut">
+        <button id="open-loading" (click)="validarUsuario()">Registrarce</button>
+        <button (click)="loginnav()">Iniciar Sesion</button>
+      </div>
+        <div id="foter">
+          <p>Copyright &copy;2023 Todos los Derechos Reservados</p>
+          <p><span>RegistrAPP</span></p>
+        </div>
+    </div>
+  </div>
+</ion-content>

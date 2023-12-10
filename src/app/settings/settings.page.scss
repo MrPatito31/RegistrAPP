@@ -1,0 +1,25 @@
+#contenido{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+ion-toolbar{
+    --background: none;
+    background-image: url(https://www.teahub.io/photos/full/26-267347_minimalist-nature-wallpaper-iphone.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+ion-content{
+  --background: none;
+  background-image: url(https://www.teahub.io/photos/full/26-267347_minimalist-nature-wallpaper-iphone.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-weight: 700;
+}
+

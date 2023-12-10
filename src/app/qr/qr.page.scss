@@ -1,0 +1,42 @@
+.contenido{
+    min-height: 100vh;
+    border: 1px transparent solid;
+  }
+  
+  .centro{
+    min-height: calc(40vh - 5px);
+    border: 5px #fff solid;
+    margin: 25vh 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
+  
+  .abajo{
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  ion-icon{
+    --color: none;
+    color: #fff;
+  }
+  
+  .abajo>ion-icon{
+    width: 49%;
+  }
+
+  #escanear{
+    font-size: 40px;
+  }
+
+  #detener{
+    font-size: 40px;
+  }
+
+  #salir{
+    font-size: 40px;
+  }

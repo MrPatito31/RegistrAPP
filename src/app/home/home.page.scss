@@ -1,0 +1,79 @@
+#home{
+    min-height: 71vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ion-title{
+    --color: none;
+    color: #fff;
+}
+
+ion-icon{
+    --color: none;
+    color: #fff;
+}
+
+ion-content{
+    --background: none;
+    background-image: url(https://www.teahub.io/photos/full/26-267347_minimalist-nature-wallpaper-iphone.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-weight: 700;
+}
+
+ion-toolbar{
+    --background: none;
+    background-image: url(https://www.teahub.io/photos/full/26-267347_minimalist-nature-wallpaper-iphone.jpg);
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#options{
+    font-size: larger;
+    display: flex;
+    align-items: center;
+}
+
+#regis{
+    color: #fdb92f;
+    font-weight: 700;
+    font-size: larger;
+}
+
+#app{
+    color: #004eb5;
+    font-weight: 700;
+    font-size: larger;
+}
+
+#titulo{
+    padding: 20px;
+    font-size: x-large;
+}
+
+#navbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90px;
+}
+
+#QR{
+    font-size: 60px;
+}
+
+#listahorario{
+    height: 50vh;
+    width: 95%;
+    overflow: auto;
+}
+
+#menu-content{
+    min-height: 100%;
+}
