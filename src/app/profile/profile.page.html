@@ -14,13 +14,13 @@
         <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
       </ion-avatar>
     </div>
-      <div id="Info" *ngFor="let dato in usuarios">
+    <div id="Info">
         
-            <ion-label id="title">Nombre: {{ dato.nombre }}</ion-label>
-          
-            <ion-label id="title">Correo: {{ dato.correo }}</ion-label>
-          
-            <ion-label id="title">RUT: {{  }}</ion-label>
-      </div>
+      <ion-label *ngFor="let user of authenticatedUsers" id="title">Nombre: {{ user.name }}</ion-label>
+    
+      <ion-label *ngFor="let user of authenticatedUsers" id="title">Correo: {{ user.email }}</ion-label>
+    
+      <ion-label *ngFor="let user of authenticatedUsers" id="title">RUT: {{ user.rut }}</ion-label>
+</div>
   </div>
 </ion-content>

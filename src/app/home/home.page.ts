@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import {NativeAudio} from '@capacitor-community/native-audio'
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,11 @@ export class HomePage {
 
   
 
-  constructor(private nav:NavController) {}
+  constructor(private nav:NavController, private authService: AuthService) {}
   
 
   Login(){
+    this.authService.logout()
     this.nav.navigateBack(['/login'])
     this.playAudio()
   }
