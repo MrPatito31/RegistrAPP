@@ -9,6 +9,7 @@ export class AuthService {
 
   private authenticatedUsers: any[] = [];
   private listQr: any[] = [];
+  private listQrA: any[] = [];
   private currentUser: any;
 
   constructor() { }
@@ -83,6 +84,22 @@ export class AuthService {
 
   getQr(): any[]{
     return this.listQr;
+  }
+
+  newQrA(seccion: string, clase: string, hora: string): boolean {
+    const storedQrA = localStorage.getItem('qras');
+    const qras = storedQrA ? JSON.parse(storedQrA) : [];
+
+    const newQrA = { seccion, clase, hora };
+    qras.push(newQrA);
+    localStorage.setItem('qras', JSON.stringify(qras));
+
+    this.listQrA.push(newQrA);
+    return true;
+  }
+
+  getQrA(): any[]{
+    return this.listQrA;
   }
 
   getCurrentUser(): any {

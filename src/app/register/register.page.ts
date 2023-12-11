@@ -21,12 +21,20 @@ export class RegisterPage{
 
   validarUsuario() {
     // Realizar validaciones antes de intentar el registro
+    const userValidationResult = this.validarUser();
+    const nombreValidationResult = this.validarNombre();
+    const apellidoValidationResult = this.validarApellido();
+    const passwordValidationResult = this.validarPasword();
+    const correoValidationResult = this.validarCorreo();
+    const rutValidationResult = this.validarRut();
+
     if (
-        this.validarUser() &&
-        this.validarNombre() &&
-        this.validarPasword() &&
-        this.validarCorreo() &&
-        this.validarRut()
+        userValidationResult === 'OK' &&
+        nombreValidationResult === 'OK' &&
+        apellidoValidationResult === 'OK' &&
+        passwordValidationResult === 'OK' &&
+        correoValidationResult === 'OK' &&
+        rutValidationResult === 'OK'
     ) {
         // Intentar el registro solo si las validaciones son exitosas
         if (this.authService.register(this.usuario, this.contrasena, this.nombre, this.apellido, this.correo, this.rut)) {
@@ -38,59 +46,55 @@ export class RegisterPage{
         }
     } else {
         // Mostrar mensaje de error si las validaciones no son exitosas
-        this.alerta('Datos incorrectos');
+        this.alerta(`Error: ${userValidationResult}, ${nombreValidationResult}, ${apellidoValidationResult}, ${passwordValidationResult}, ${correoValidationResult}, ${rutValidationResult}`);
     }
 }
 
-  async alerta(texto:string){
-    const toast = await this.toastController.create({
-      message: texto,
-      duration: 1000,
-      position: 'bottom',
-    });
-    await toast.present()
-  }
+  validarUser(): string {
+    const correoP = "@profesorduocuc.cl";
+    const correoA = "@duocuc.cl";
 
-  loginnav(){
-    this.nav.navigateBack(['/login']);
-  }
-
-  validarUser(){
-    const correoP = "@profesorduocuc.cl"
-    const correoA = "@duocuc.cl"
-    if(this.usuario.length >= 10 && this.usuario.length <= 30 && this.usuario.includes(correoP) || this.usuario.includes(correoA)){
-      return true;
-    }else{
-      return false;
+    if (this.usuario.length >= 10 && this.usuario.length <= 30 && (this.usuario.includes(correoP) || this.usuario.includes(correoA))) {
+        return 'OK';
+    } else {
+        return 'El usuario no cumple con los requisitos.';
     }
   }
 
-  validarPasword(){
+  validarPasword(): string {
     if(this.contrasena.length >= 8 && this.contrasena.length <= 16){
-      return true
+      return 'OK';
     }else{
-      return false
+      return 'La contraseña es de 8 a 16 caracteres';
     }
   }
 
-  validarCorreo(){
+  validarCorreo(): string {
     const correo = "@gmail.com";
     if(this.correo.includes(correo)){
-      return true
+      return 'OK';
     }else{
-      return false
+      return 'El correo es invalido';
     }    
   }
 
-  validarNombre(){
-   if(this.nombre.length >= 1 && this.nombre.length <= 20 && this.apellido.length >= 1 && this.apellido.length <= 20 ){
-    return true
+  validarNombre(): string {
+   if(this.nombre.length >= 1 && this.nombre.length <= 20){
+    return 'OK';
    }else{
-    return false
+    return 'El nombre es de 1 a 20 caracteres';
    }
   }
 
-  validarRut() {
+  validarApellido(): string{
+    if(this.apellido.length >= 1 && this.apellido.length <= 20){
+     return 'OK';
+    }else{
+     return 'El apellido es de 1 a 20 caracteres';
+    }
+   }
+
+  validarRut(): string {
     const guionV = '-';
     
     // Verificar que el RUT tenga la longitud adecuada
@@ -98,12 +102,12 @@ export class RegisterPage{
             // Verificar que el guion esté en la posición correcta
             if (this.rut.includes(guionV) && this.rut.indexOf(guionV) === 8) {
                 // RUT válido
-                return true;   
+                return 'OK';   
         }
     }
     // RUT inválido
-    return false;
-}
+    return 'El rut no cumple los requisitos (12345678-7)';
+  }
 
   animaInput(input: string) {
     let usuario = document.querySelector(input) as HTMLInputElement
@@ -116,5 +120,18 @@ export class RegisterPage{
         { offset: 1, transform: 'rotate(0)' }
       ]).play()
   }
-  
+ 
+  async alerta(texto:string){
+    const toast = await this.toastController.create({
+      message: texto,
+      duration: 1500,
+      position: 'bottom',
+    });
+    await toast.present()
+  }
+
+  loginnav(){
+    this.nav.navigateBack(['/login']);
+  }
+
 }
