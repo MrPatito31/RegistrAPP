@@ -43,11 +43,24 @@
         <div id="titulo" style="color: #fff;">Revisa tus horarios de hoy</div>
           <div id="listahorario">
             <!--Contenido de Lista Horario-->
-              <ion-label id="title" style="color: #fff;">Seccion: </ion-label>
-
-              <ion-label id="title" style="color: #fff;">Clase: </ion-label>
-          
-              <ion-label id="title" style="color: #fff;">Hora: </ion-label>
+            <table id="tabla">
+              <thead>
+                <tr>
+                  <th>Seccion</th>
+                  <th>Clase</th>
+                  <th>Hora</th>
+                  <th>asistencia</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let datos of listQr">
+                  <td>{{ datos.seccion }}</td>
+                  <td>{{ datos.clase }}</td>
+                  <td>{{ datos.hora }}</td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
       </div>
       <div id="navbar">

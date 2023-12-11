@@ -15,8 +15,12 @@
       </ion-avatar>
     </div>
     <div id="Info">
+
+      <ion-label *ngFor="let user of authenticatedUsers" id="title">Nombre de usuario: {{ user.username }}</ion-label>
         
       <ion-label *ngFor="let user of authenticatedUsers" id="title">Nombre: {{ user.name }}</ion-label>
+
+      <ion-label *ngFor="let user of authenticatedUsers" id="title">Apellido: {{ user.lastname }}</ion-label>
     
       <ion-label *ngFor="let user of authenticatedUsers" id="title">Correo: {{ user.email }}</ion-label>
     

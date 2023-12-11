@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BarcodeScanner, SupportedFormat } from '@capacitor-community/barcode-scanner';
 import { AlertController, NavController, Platform } from '@ionic/angular';
-import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx'
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-qr',
@@ -11,14 +11,14 @@ import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx'
 export class QrPage {
 
   resultado=""
-  conexion:any
   claseId=""
   clase=""
   inicioClase=""
   finClase=""
+  listQr: any[] = [];
 
-  constructor(private alert:AlertController, private nav:NavController, private sqlite:SQLite,
-              private platform:Platform) { }
+  constructor(private alert:AlertController, private nav:NavController,
+              private platform:Platform,private authService: AuthService) { }
 
   
 
@@ -40,6 +40,16 @@ export class QrPage {
     BarcodeScanner.stopScan();
 
     this.resultado = "";
+  }
+
+
+  validarAsist(){
+    
+    if(this.resultado == localStorage.getItem('seccion')){
+      return true
+    }else{
+      return false
+    }
   }
 
   salir(){

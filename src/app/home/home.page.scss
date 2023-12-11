@@ -77,3 +77,18 @@ ion-toolbar{
 #menu-content{
     min-height: 100%;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f21c;
+  }

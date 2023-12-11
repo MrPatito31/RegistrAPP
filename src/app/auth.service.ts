@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
 
   private authenticatedUsers: any[] = [];
+  private listQr: any[] = [];
   private currentUser: any;
 
   constructor() { }
@@ -36,24 +37,22 @@ export class AuthService {
     return true; // Registro exitoso
   }
 
-  login(username: string, password: string): boolean {
-    // Verifica si el usuario existe
+  login(username: string, password: string): { success: boolean; reason?: string; input?: string } {
     const storedUsers = localStorage.getItem('users');
     const users = storedUsers ? JSON.parse(storedUsers) : [];
     const authenticatedUser = users.find((user: any) => user.username === username && user.password === password);
-
+  
     if (authenticatedUser) {
-      // Almacena el usuario actual
       this.currentUser = authenticatedUser;
-
-      // Agrega el usuario actual a la lista de usuarios autenticados
       this.authenticatedUsers.push(authenticatedUser);
-
       localStorage.setItem('currentUser', JSON.stringify(authenticatedUser));
-      return true; // Inicio de sesión exitoso
+      return { success: true }; // Inicio de sesión exitoso
     }
-
-    return false; // Credenciales incorrectas
+  
+    // Determina la razón del fallo en el inicio de sesión
+    const reason = users.some((user: any) => user.username === username) ? 'contrasenaNoValida' : 'usuarioNoValido';
+    const input = users.some((user: any) => user.username === username) ? 'contrasenaNoValida' : 'usuarioNoValido';
+    return { success: false, reason, input };
   }
 
   logout(): void {
@@ -68,6 +67,22 @@ export class AuthService {
   
     // Limpia la referencia al usuario actual en el servicio
     this.currentUser = null;
+  }
+
+  newQr(seccion: string, clase: string, hora: string): boolean {
+    const storedQr = localStorage.getItem('qrs');
+    const qrs = storedQr ? JSON.parse(storedQr) : [];
+
+    const newQr = { seccion, clase, hora };
+    qrs.push(newQr);
+    localStorage.setItem('qrs', JSON.stringify(qrs));
+
+    this.listQr.push(newQr);
+    return true;
+  }
+
+  getQr(): any[]{
+    return this.listQr;
   }
 
   getCurrentUser(): any {

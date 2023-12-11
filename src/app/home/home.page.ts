@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import {NativeAudio} from '@capacitor-community/native-audio'
 import { AuthService } from '../auth.service';
@@ -8,13 +8,15 @@ import { AuthService } from '../auth.service';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit{
 
-
+  listQr: any[] = [];
   
-
   constructor(private nav:NavController, private authService: AuthService) {}
   
+  ngOnInit(){
+    this.listQr = this.authService.getQr();
+  }
 
   Login(){
     this.authService.logout()
@@ -40,6 +42,10 @@ export class HomePage {
   QrGenerate(){
     this.nav.navigateForward(['/qrgenerate'])
     this.playAudio()
+  }
+  
+  getQr(): any[]{
+    return this.listQr;
   }
 
   async playAudio(){

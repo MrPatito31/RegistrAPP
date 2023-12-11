@@ -2,16 +2,14 @@
   <div id="contenido">
     <div #qrcode class="qr"></div>
     <div id="inputs">
-      <label>ID de la clase</label>
-      <input id="texto" type="text" >
-      <label>Nombre de la clase</label>
-      <input id="texto" type="text" >
-      <label>Horario de inicio</label>
-      <input id="texto" type="text" >
-      <label>Horario de termino</label>
-      <input id="texto" type="text" >
+      <label >ID de la clase</label>
+      <input [(ngModel)]="seccion" id="texto" type="text" placeholder="ejemplo: 000-A">
+      <label >Nombre de la clase</label>
+      <input [(ngModel)]="clase" id="texto" type="text" placeholder="ejemplo: ingles">
+      <label >Horario</label>
+      <input [(ngModel)]="hora" id="texto" type="text" placeholder="ejemplo: 12:00-13:00">
     </div>
-    <button id="generar" >Generar</button>
-    <button id="salir" >Salir</button>
+    <button (click)="validarQr()" id="generar" >Generar</button>
+    <button (click)="salir()" id="salir" >Salir</button>
 </div>
 </ion-content>
