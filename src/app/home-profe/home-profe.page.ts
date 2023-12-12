@@ -1,23 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import {NativeAudio} from '@capacitor-community/native-audio'
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-home-profe',
   templateUrl: './home-profe.page.html',
   styleUrls: ['./home-profe.page.scss'],
 })
-export class HomeProfePage {
+export class HomeProfePage implements OnInit{
 
-  constructor(private nav:NavController) { }
+  listQr: any[] = [];
 
-  Login(){
-    this.nav.navigateBack(['/login'])
-    this.playAudio()
+  constructor(private nav:NavController, private authService: AuthService) { }
+
+  ngOnInit(){
+    this.listQr = this.authService.getQr();
   }
 
-  Setting(){
-    this.nav.navigateForward(['/settings'])
+  getQr(): any[]{
+    return this.listQr;
+  }
+
+  Login(){
+    this.authService.logout()
+    this.nav.navigateBack(['/login'])
     this.playAudio()
   }
 

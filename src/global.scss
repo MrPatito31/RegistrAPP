@@ -28,4 +28,10 @@
 body.scanner-active {
   --background: transparent;
   --ion-background-color: transparent;
+  background-color: transparent;
+  background: transparent; // Ajusta el color de fondo según sea necesario
+}
+
+body.scanner-active ion-icon {
+  color: white; // O ajusta el color de los iconos según sea necesario
 }

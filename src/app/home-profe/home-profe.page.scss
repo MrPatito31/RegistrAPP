@@ -73,7 +73,6 @@ ion-toolbar{
     height: 40vh;
     width: 95%;
     overflow: auto;
-    border: red solid 2px;
 }
 
 #menu-content{
@@ -90,3 +89,18 @@ ion-toolbar{
 #addicon{
     font-size: x-large;
 }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f2f21c;
+  }

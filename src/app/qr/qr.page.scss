@@ -1,6 +1,7 @@
 .contenido{
     min-height: 100vh;
     border: 1px transparent solid;
+    background: black;
   }
   
   .centro{
@@ -39,4 +40,14 @@
 
   #salir{
     font-size: 40px;
+  }
+
+  body.scanner-active {
+    --background: transparent;
+    --ion-background-color: transparent;
+    background: transparent; // Ajusta el color de fondo según sea necesario
+  }
+  
+  body.scanner-active ion-icon {
+    color: white; // O ajusta el color de los iconos según sea necesario
   }

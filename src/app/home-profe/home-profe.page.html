@@ -15,10 +15,6 @@
           Perfil
         </div>
         <hr>
-        <div style="--color: #fff;" id="options" (click)="Setting()"><ion-icon name="notifications-outline" size="large"></ion-icon>
-          Notificaciones
-        </div>
-        <hr>
         <div style="--color: #fff;" id="options" (click)="QrGenerate()"><ion-icon name="qr-code-outline" size="large"></ion-icon>
           Generar QR
         </div>
@@ -44,15 +40,26 @@
 <!-- Contenido del Home -->
     <ion-content>
       <div id="home">
-        <div id="titulo" style="color: #fff;">Revisa tus horarios de hoy</div>
-        <div id="addhorario"><ion-icon id="addicon" name="newspaper-outline"></ion-icon></div>
+        <div id="titulo" style="color: #fff;">Horarios registrados</div>
           <div id="listahorario">
-            <!--Contenido de Lista Horario-->
-            
+             <!--Contenido de Lista Horario-->
+             <table id="tabla">
+              <thead>
+                <tr>
+                  <th>Seccion</th>
+                  <th>Clase</th>
+                  <th>Hora</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let datos of listQr">
+                  <td>{{ datos.seccion }}</td>
+                  <td>{{ datos.clase }}</td>
+                  <td>{{ datos.hora }}</td>
+                </tr>
+              </tbody>
+            </table>
           </div>
-      </div>
-      <div id="navbar">
-        <ion-icon id="QR" name="qr-code-outline" (click)="Qr()"></ion-icon>
       </div>
     </ion-content>
   </div>

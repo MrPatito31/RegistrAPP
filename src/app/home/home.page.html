@@ -15,10 +15,6 @@
           Perfil
         </div>
         <hr>
-        <div style="color: #fff;" id="options" (click)="Setting()"><ion-icon style="--color: #fff;" name="notifications-outline" size="large"></ion-icon>
-          Notificaciones
-        </div>
-        <hr>
         <div style="color: #fff;" id="options" (click)="Login()"><ion-icon style="--color: #fff;" name="close-circle-outline" size="large"></ion-icon> 
           Cerrar Sesion
         </div>
@@ -40,7 +36,7 @@
 <!-- Contenido del Home -->
     <ion-content>
       <div id="home">
-        <div id="titulo" style="color: #fff;">Revisa tus horarios de hoy</div>
+        <div id="titulo" style="color: #fff;">Clases asistidas</div>
           <div id="listahorario">
             <!--Contenido de Lista Horario-->
             <table id="tabla">
@@ -53,11 +49,11 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let datos of listQr">
+                <tr *ngFor="let datos of listQrA">
                   <td>{{ datos.seccion }}</td>
                   <td>{{ datos.clase }}</td>
                   <td>{{ datos.hora }}</td>
-                  <td></td>
+                  <td><ion-icon id="asistCheck" name="checkmark-circle-outline"></ion-icon></td>
                 </tr>
               </tbody>
             </table>

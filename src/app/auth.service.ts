@@ -32,9 +32,6 @@ export class AuthService {
     // Almacena el usuario actual
     this.currentUser = newUser;
 
-    // Agrega el usuario actual a la lista de usuarios autenticados
-    this.authenticatedUsers.push(newUser);
-
     return true; // Registro exitoso
   }
 

@@ -19,7 +19,13 @@ export class ProfilePage implements OnInit{
   }
 
   Home(){
-    this.nav.navigateBack(['/home'])
+    const correoP = "@profesorduocuc.cl";
+    if(this.authService.getCurrentUser().includes(correoP)){
+      this.nav.navigateBack(['/home-profe'])
+    }else{
+      this.nav.navigateBack(['/home'])
+    }
+    
   }
 }
 

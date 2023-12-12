@@ -10,22 +10,36 @@ import { AuthService } from '../auth.service';
 })
 export class HomePage implements OnInit{
 
-  listQr: any[] = [];
+  listQrA: any[] = [];
+  darkMode = false;
   
   constructor(private nav:NavController, private authService: AuthService) {}
   
   ngOnInit(){
-    this.listQr = this.authService.getQr();
+    this.listQrA = this.authService.getQrA();
+  }
+
+  checkAppMode(){
+    const checkIsDarkMode = localStorage.getItem('darkModeActivated');
+    checkIsDarkMode == 'true'
+      ? (this.darkMode = true)
+      : (this.darkMode = false);
+    document.body.classList.toggle('dark', this.darkMode);  
+  }
+
+  toggleDarkMode(){
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle('dark', this.darkMode)
+    if(this.darkMode){
+      localStorage.setItem('darkModeActivated', 'true');
+    }else{
+      localStorage.setItem('darkModeActivated', 'false');
+    }
   }
 
   Login(){
     this.authService.logout()
     this.nav.navigateBack(['/login'])
-    this.playAudio()
-  }
-
-  Setting(){
-    this.nav.navigateForward(['/settings'])
     this.playAudio()
   }
 
@@ -44,8 +58,8 @@ export class HomePage implements OnInit{
     this.playAudio()
   }
   
-  getQr(): any[]{
-    return this.listQr;
+  getQrA(): any[]{
+    return this.listQrA;
   }
 
   async playAudio(){
